@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Главная",
+    "movies": "Фильмы",
+    "series": "Сериалы",
+    "search": "Поиск",
+    "genres": "Жанры",
+    "new": "Новинки",
+    "popular": "Популярное",
+    "favorites": "Избранное"
+  },
+  "hero": {
+    "watch": "Смотреть",
+    "details": "Подробнее",
+    "trending": "Сейчас в тренде"
+  },
+  "home": {
+    "trending": "Популярные фильмы",
+    "topRated": "Лучшие по рейтингу",
+    "newReleases": "Новинки",
+    "topSeries": "Лучшие сериалы",
+    "allMovies": "Все фильмы",
+    "allSeries": "Все сериалы"
+  },
+  "movie": {
+    "watch": "Смотреть онлайн",
+    "trailer": "Трейлер",
+    "rating": "Рейтинг",
+    "year": "Год",
+    "duration": "Длительность",
+    "genre": "Жанр",
+    "country": "Страна",
+    "director": "Режиссёр",
+    "cast": "В ролях",
+    "description": "Описание",
+    "similar": "Похожие фильмы",
+    "minutes": "мин",
+    "selectTranslation": "Выбрать озвучку",
+    "season": "Сезон",
+    "episode": "Серия"
+  },
+  "search": {
+    "placeholder": "Поиск фильмов и сериалов...",
+    "results": "Результаты поиска",
+    "noResults": "Ничего не найдено",
+    "searching": "Ищем..."
+  },
+  "genres": {
+    "action": "Боевик",
+    "adventure": "Приключения",
+    "animation": "Мультфильм",
+    "comedy": "Комедия",
+    "crime": "Криминал",
+    "documentary": "Документальный",
+    "drama": "Драма",
+    "family": "Семейный",
+    "fantasy": "Фэнтези",
+    "history": "Исторический",
+    "horror": "Ужасы",
+    "music": "Музыка",
+    "mystery": "Детектив",
+    "romance": "Мелодрама",
+    "scifi": "Фантастика",
+    "thriller": "Триллер",
+    "war": "Военный",
+    "western": "Вестерн"
+  },
+  "filters": {
+    "all": "Все",
+    "year": "Год",
+    "genre": "Жанр",
+    "sort": "Сортировка",
+    "popularity": "По популярности",
+    "ratingDesc": "По рейтингу",
+    "dateDesc": "По дате (новые)",
+    "dateAsc": "По дате (старые)"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "retry": "Попробовать снова",
+    "showMore": "Показать ещё",
+    "back": "Назад",
+    "language": "Язык"
+  },
+  "footer": {
+    "description": "Смотрите фильмы и сериалы онлайн бесплатно в хорошем качестве",
+    "links": "Ссылки",
+    "legal": "Информация",
+    "contact": "Контакты",
+    "copyright": "Все права защищены"
+  }
+}

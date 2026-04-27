@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Home",
+    "movies": "Movies",
+    "series": "TV Series",
+    "search": "Search",
+    "genres": "Genres",
+    "new": "New",
+    "popular": "Popular",
+    "favorites": "Favorites"
+  },
+  "hero": {
+    "watch": "Watch Now",
+    "details": "Details",
+    "trending": "Trending Now"
+  },
+  "home": {
+    "trending": "Trending Movies",
+    "topRated": "Top Rated",
+    "newReleases": "New Releases",
+    "topSeries": "Top TV Series",
+    "allMovies": "All Movies",
+    "allSeries": "All Series"
+  },
+  "movie": {
+    "watch": "Watch Online",
+    "trailer": "Trailer",
+    "rating": "Rating",
+    "year": "Year",
+    "duration": "Duration",
+    "genre": "Genre",
+    "country": "Country",
+    "director": "Director",
+    "cast": "Cast",
+    "description": "Description",
+    "similar": "Similar Movies",
+    "minutes": "min",
+    "selectTranslation": "Select dubbing",
+    "season": "Season",
+    "episode": "Episode"
+  },
+  "search": {
+    "placeholder": "Search movies and series...",
+    "results": "Search Results",
+    "noResults": "Nothing found",
+    "searching": "Searching..."
+  },
+  "genres": {
+    "action": "Action",
+    "adventure": "Adventure",
+    "animation": "Animation",
+    "comedy": "Comedy",
+    "crime": "Crime",
+    "documentary": "Documentary",
+    "drama": "Drama",
+    "family": "Family",
+    "fantasy": "Fantasy",
+    "history": "History",
+    "horror": "Horror",
+    "music": "Music",
+    "mystery": "Mystery",
+    "romance": "Romance",
+    "scifi": "Sci-Fi",
+    "thriller": "Thriller",
+    "war": "War",
+    "western": "Western"
+  },
+  "filters": {
+    "all": "All",
+    "year": "Year",
+    "genre": "Genre",
+    "sort": "Sort by",
+    "popularity": "Popularity",
+    "ratingDesc": "Rating",
+    "dateDesc": "Date (newest)",
+    "dateAsc": "Date (oldest)"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "showMore": "Show more",
+    "back": "Back",
+    "language": "Language"
+  },
+  "footer": {
+    "description": "Watch movies and TV series online for free in high quality",
+    "links": "Links",
+    "legal": "Information",
+    "contact": "Contact",
+    "copyright": "All rights reserved"
+  }
+}

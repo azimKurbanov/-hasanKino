@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "movies": "Filmlar",
+    "series": "Seriallar",
+    "search": "Qidirish",
+    "genres": "Janrlar",
+    "new": "Yangiliklar",
+    "popular": "Mashhur",
+    "favorites": "Sevimlilar"
+  },
+  "hero": {
+    "watch": "Ko'rish",
+    "details": "Batafsil",
+    "trending": "Hozir trendda"
+  },
+  "home": {
+    "trending": "Mashhur filmlar",
+    "topRated": "Eng yaxshilar",
+    "newReleases": "Yangi filmlar",
+    "topSeries": "Eng yaxshi seriallar",
+    "allMovies": "Barcha filmlar",
+    "allSeries": "Barcha seriallar"
+  },
+  "movie": {
+    "watch": "Onlayn ko'rish",
+    "trailer": "Treyler",
+    "rating": "Reyting",
+    "year": "Yil",
+    "duration": "Davomiyligi",
+    "genre": "Janr",
+    "country": "Mamlakat",
+    "director": "Rejissyor",
+    "cast": "Aktyorlar",
+    "description": "Tavsif",
+    "similar": "O'xshash filmlar",
+    "minutes": "daq",
+    "selectTranslation": "Ovoz turini tanlang",
+    "season": "Mavsum",
+    "episode": "Qism"
+  },
+  "search": {
+    "placeholder": "Film va seriallarni qidiring...",
+    "results": "Qidiruv natijalari",
+    "noResults": "Hech narsa topilmadi",
+    "searching": "Qidirilmoqda..."
+  },
+  "genres": {
+    "action": "Jangari",
+    "adventure": "Sarguzasht",
+    "animation": "Multfilm",
+    "comedy": "Komediya",
+    "crime": "Jinoyat",
+    "documentary": "Hujjatli",
+    "drama": "Drama",
+    "family": "Oilaviy",
+    "fantasy": "Fantaziya",
+    "history": "Tarixiy",
+    "horror": "Qo'rqinchli",
+    "music": "Musiqa",
+    "mystery": "Detektiv",
+    "romance": "Romantik",
+    "scifi": "Fantastika",
+    "thriller": "Triller",
+    "war": "Harbiy",
+    "western": "Vestern"
+  },
+  "filters": {
+    "all": "Barchasi",
+    "year": "Yil",
+    "genre": "Janr",
+    "sort": "Saralash",
+    "popularity": "Mashhurlik bo'yicha",
+    "ratingDesc": "Reyting bo'yicha",
+    "dateDesc": "Sana (yangi)",
+    "dateAsc": "Sana (eski)"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xatolik yuz berdi",
+    "retry": "Qayta urinish",
+    "showMore": "Ko'proq ko'rsatish",
+    "back": "Orqaga",
+    "language": "Til"
+  },
+  "footer": {
+    "description": "Filmlar va seriallarni onlayn bepul yuqori sifatda tomosha qiling",
+    "links": "Havolalar",
+    "legal": "Ma'lumot",
+    "contact": "Aloqa",
+    "copyright": "Barcha huquqlar himoyalangan"
+  }
+}
