@@ -1,0 +1,10 @@
+{
+  "name": "kino-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Edge proxy for KINO embed providers. Bypasses UZ ISP DNS block.",
+  "engines": {
+    "node": ">=18"
+  }
+}
