@@ -8,12 +8,15 @@ import Hls from 'hls.js'
 // buildEmbeds — prepended when a TMDB trailer key is available). The list
 // below is kept for users on VPN/different ISPs where these still resolve.
 // Verified 2026-05-23: from UZ ISP all of these return ERR_NAME_NOT_RESOLVED.
+// Порядок важен: vidsrc.to и vidlink — единственные кто реально отвечают через наш Vercel-прокси
+// (проверено 2026-05-24). Остальные либо банят прокси-IP, либо встречают Cloudflare-челлендж.
+// Оставлены для VPN-юзеров: им любой провайдер откроется напрямую.
 const STREAMING_EMBEDS = [
   {
-    key: 'vidsrc_xyz',
-    label: 'VidSrc.xyz',
-    movie: (id)       => `https://vidsrc.xyz/embed/movie?tmdb=${id}`,
-    tv:    (id, s, e) => `https://vidsrc.xyz/embed/tv?tmdb=${id}&season=${s}&episode=${e}`,
+    key: 'vidsrc_to',
+    label: 'VidSrc.to',
+    movie: (id)       => `https://vidsrc.to/embed/movie/${id}`,
+    tv:    (id, s, e) => `https://vidsrc.to/embed/tv/${id}/${s}/${e}`,
   },
   {
     key: 'vidlink',
@@ -22,10 +25,10 @@ const STREAMING_EMBEDS = [
     tv:    (id, s, e) => `https://vidlink.pro/tv/${id}/${s}/${e}?autoplay=true`,
   },
   {
-    key: 'vidsrc_to',
-    label: 'VidSrc.to',
-    movie: (id)       => `https://vidsrc.to/embed/movie/${id}`,
-    tv:    (id, s, e) => `https://vidsrc.to/embed/tv/${id}/${s}/${e}`,
+    key: 'vidsrc_xyz',
+    label: 'VidSrc.xyz',
+    movie: (id)       => `https://vidsrc.xyz/embed/movie?tmdb=${id}`,
+    tv:    (id, s, e) => `https://vidsrc.xyz/embed/tv?tmdb=${id}&season=${s}&episode=${e}`,
   },
   {
     key: 'embed2',
@@ -293,9 +296,9 @@ export function VideoPlayer({
       )}
 
       {/* ── Embed iframe ──────────────────────────────────────────────── */}
-      {/* sandbox is essential: many free-stream embeds try to redirect the parent
-          window or open popunders. allow-* tokens permit playback while blocking
-          parent-window navigation and top-level redirects. */}
+      {/* sandbox опущен намеренно: VidLink (и часть других) делают feature-detect
+          и отказываются играть, если iframe-у урезаны права. На практике это значит,
+          что embed может попытаться открыть popunder — у юзера блокируется браузером. */}
       {!usingDirect && !loadingDirect && !noTrailer && (
         <iframe
           key={`${activeEmbed.key}-${movieId}-${activeSeason}-${activeEpisode}-${embedKey2}`}
@@ -303,7 +306,6 @@ export function VideoPlayer({
           onLoad={onEmbedLoad}
           allowFullScreen
           allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write"
-          sandbox="allow-same-origin allow-scripts allow-forms allow-presentation"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0 w-full h-full border-0"
           title="Video Player"

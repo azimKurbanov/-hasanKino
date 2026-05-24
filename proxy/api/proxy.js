@@ -123,6 +123,56 @@ export default async function handler(request) {
   html = rewriteAttr(html, 'audio',  'src',    base, origin)
   html = rewriteAttr(html, 'form',   'action', base, origin)
 
+  // Inject a script that monkey-patches fetch / XMLHttpRequest / WebSocket on the page
+  // so runtime requests (which our HTML regex CAN'T see) also go through us.
+  // Without this, players like VidLink fetch their stream metadata directly and stall.
+  const injected = `<script>(function(){
+    var PROXY=${JSON.stringify(origin + PROXY_PATH)};
+    var BASE=${JSON.stringify(base)};
+    function wrap(u){
+      if(!u) return u;
+      var s = String(u);
+      if(s.indexOf(PROXY)===0) return s;
+      if(/^(data:|blob:|javascript:|about:|#|mailto:)/i.test(s)) return s;
+      try{
+        var abs = new URL(s, BASE).toString();
+        if(!/^https?:/i.test(abs)) return s;
+        return PROXY + '?url=' + encodeURIComponent(abs);
+      }catch(e){ return s; }
+    }
+    var _f = window.fetch;
+    window.fetch = function(input, init){
+      try{
+        if(typeof input === 'string') return _f.call(this, wrap(input), init);
+        if(input && input.url) return _f.call(this, new Request(wrap(input.url), input), init);
+      }catch(e){}
+      return _f.call(this, input, init);
+    };
+    var _xo = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(m, u){
+      arguments[1] = wrap(u);
+      return _xo.apply(this, arguments);
+    };
+    var _ws = window.WebSocket;
+    if(_ws){
+      window.WebSocket = function(url, protocols){
+        // ws/wss — пробуем переписать на нашу прокси-домен через wss
+        // Простой случай: если абсолютный URL — оставляем как есть, ws-прокси отдельная история.
+        return protocols ? new _ws(url, protocols) : new _ws(url);
+      };
+      window.WebSocket.prototype = _ws.prototype;
+    }
+  })();</script>`
+
+  // Inject right after <head> (or as fallback after <html>), so it runs before any other script.
+  if (/<head[^>]*>/i.test(html)) {
+    html = html.replace(/<head[^>]*>/i, m => m + injected)
+  } else if (/<html[^>]*>/i.test(html)) {
+    html = html.replace(/<html[^>]*>/i, m => m + injected)
+  } else {
+    html = injected + html
+  }
+
   headers.set('content-type', 'text/html; charset=utf-8')
   headers.delete('content-length') // body size changed
 
