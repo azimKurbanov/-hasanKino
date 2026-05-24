@@ -5,6 +5,7 @@ import { VideoPlayer } from '../components/VideoPlayer'
 import { MovieRow } from '../components/MovieRow'
 import { CreateLobbyModal } from '../components/CreateLobbyModal'
 import { Comments } from '../components/Comments'
+import { WatchProviders } from '../components/WatchProviders'
 import { getSeriesDetails, getSeasonDetails, IMG, BACKDROP } from '../services/tmdb'
 import { formatYear, formatRating, getRatingColor } from '../utils/format'
 
@@ -155,6 +156,9 @@ export function TvShowPage({ onAuthOpen }) {
             </div>
 
             {show.overview && <p className="text-white/80 leading-relaxed mb-6">{show.overview}</p>}
+
+            {/* Where to watch (legal providers) */}
+            <WatchProviders providers={show['watch/providers']} />
           </div>
         </div>
 

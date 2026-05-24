@@ -5,6 +5,7 @@ import { VideoPlayer } from '../components/VideoPlayer'
 import { MovieRow } from '../components/MovieRow'
 import { CreateLobbyModal } from '../components/CreateLobbyModal'
 import { Comments } from '../components/Comments'
+import { WatchProviders } from '../components/WatchProviders'
 import { getMovieDetails, IMG, BACKDROP } from '../services/tmdb'
 import { formatRuntime, formatYear, formatRating, formatVotes, getRatingColor } from '../utils/format'
 
@@ -163,11 +164,14 @@ export function MoviePage({ onAuthOpen }) {
 
             {/* Overview */}
             {movie.overview && (
-              <div className="mb-8">
+              <div className="mb-6">
                 <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-2">Описание</h3>
                 <p className="text-white/80 leading-relaxed">{movie.overview}</p>
               </div>
             )}
+
+            {/* Where to watch (legal providers) */}
+            <WatchProviders providers={movie['watch/providers']} />
           </div>
         </div>
 

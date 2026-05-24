@@ -40,7 +40,7 @@ export const getUpcoming        = (lang='ru', page=1) => tmdb('/movie/upcoming',
 // include_video_language=ru,en,null — без этого TMDB вернёт только видео на текущем lang
 // и у многих фильмов окажется пусто (русского трейлера нет), хотя английский есть.
 // "null" в списке = видео без указанного языка тоже попадают в ответ.
-export const getMovieDetails    = (id, lang='ru')     => tmdb(`/movie/${id}`,          { language: lang, append_to_response: 'credits,similar,videos', include_video_language: 'ru,en,null,ja,ko,zh,hi,fr,es,de,it,pt,tr,ar,th,id' })
+export const getMovieDetails    = (id, lang='ru')     => tmdb(`/movie/${id}`,          { language: lang, append_to_response: 'credits,similar,videos,watch/providers', include_video_language: 'ru,en,null,ja,ko,zh,hi,fr,es,de,it,pt,tr,ar,th,id' })
 export const getMoviesByGenre   = (genreId, lang='ru', page=1) =>
   tmdb('/discover/movie', { language: lang, with_genres: genreId, sort_by: 'popularity.desc', page })
 
@@ -59,7 +59,7 @@ export const getPopularSeries   = (lang='ru', page=1) => tmdb('/tv/popular',    
 export const getTopRatedSeries  = (lang='ru', page=1) => tmdb('/tv/top_rated',       { language: lang, page })
 export const getOnAirSeries     = (lang='ru', page=1) => tmdb('/tv/on_the_air',      { language: lang, page })
 export const getAiringToday     = (lang='ru', page=1) => tmdb('/tv/airing_today',    { language: lang, page })
-export const getSeriesDetails   = (id, lang='ru')     => tmdb(`/tv/${id}`,           { language: lang, append_to_response: 'credits,similar,videos', include_video_language: 'ru,en,null,ja,ko,zh,hi,fr,es,de,it,pt,tr,ar,th,id' })
+export const getSeriesDetails   = (id, lang='ru')     => tmdb(`/tv/${id}`,           { language: lang, append_to_response: 'credits,similar,videos,watch/providers', include_video_language: 'ru,en,null,ja,ko,zh,hi,fr,es,de,it,pt,tr,ar,th,id' })
 export const getSeasonDetails   = (tvId, s, lang='ru') => tmdb(`/tv/${tvId}/season/${s}`, { language: lang })
 export const getSeriesByGenre   = (genreId, lang='ru', page=1) =>
   tmdb('/discover/tv', { language: lang, with_genres: genreId, sort_by: 'popularity.desc', page })
